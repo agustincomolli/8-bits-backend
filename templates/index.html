@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CRUD con Bootstrap y Flask</title>
+    <!-- Agrega los enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Servicios</h2>
+        <a href="{{ url_for('create') }}" class="btn btn-success mb-2">➕ Crear Servicio</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Servicio</th>
+                    <th>Descripción del Servicio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for servicio in servicios %}
+                <tr>
+                    <td>{{ servicio[0] }}</td>
+                    <td>{{ servicio[1] }}</td>
+                    <td>{{ servicio[2] }}</td>
+                    <td>
+                        <a href="{{ url_for('update', servicio_id=servicio[0]) }}" class="btn btn-warning btn-sm"
+                            style="width: 100px;">✏️ Editar</a>
+                        <a href="{{ url_for('delete', servicio_id=servicio[0]) }}" class="btn btn-danger btn-sm"
+                            style="width: 100px;">❌
+                            Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Agrega los enlaces a Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
