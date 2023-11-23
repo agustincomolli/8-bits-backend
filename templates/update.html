@@ -4,4 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Editar Servicio</title>
-    <!-- Agrega
+    <!-- Agrega los enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="body">
+
+    <div class="container mt-4">
+        <h2>Editar Servicio</h2>
+        <div class="mb-2">
+            <button id="theme-btn">🌞</button>
+        </div>
+        <form action="{{ url_for('update_process', servicio_id=servicio[0]) }}" method="post">
+            <div class="form-group">
+                <label for="servicio_nombre">Nombre del Servicio:</label>
+                <input type="text" class="form-control" id="servicio_nombre" name="servicio_nombre"
+                    value="{{ servicio[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="servicio_descripcion">Descripción del Servicio:</label>
+                <textarea class="form-control" id="servicio_descripcion" name="servicio_descripcion" rows="4"
+                    required>{{ servicio[2] }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+
+    <!-- Agrega los enlaces a Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
