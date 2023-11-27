@@ -8,7 +8,7 @@ app.secret_key = 'TURANDOMKEY'
 
 # Configuramos la conexión a database de MySQL con PyMySQL
 db = pymysql.connect(host="viaduct.proxy.rlwy.net", port=51991, user="root",
-                     password="eggh-22cgFb-gBg4aH6DfFAC14edeFC6", database="servicios")
+                     password="eggh-22cgFb-gBg4aH6DfFAC14edeFC6", database="8-bits")
 cursor = db.cursor()
 
 
@@ -52,7 +52,7 @@ def index():
     """
     if 'username' in session:
         cursor.execute(
-            "SELECT id, servicio_nombre, servicio_descripcion FROM servicios_info")
+            "SELECT id, name, description FROM services")
         data = cursor.fetchall()
         return render_template('index.html', servicios=data)
     else:
@@ -85,7 +85,7 @@ def create_process():
 
         # Insertar los datos en la base de datos
         cursor.execute(
-            "INSERT INTO servicios_info (servicio_nombre, servicio_descripcion) VALUES (%s, %s)", (nombre, descripcion))
+            "INSERT INTO services (name, description) VALUES (%s, %s)", (nombre, descripcion))
         db.commit()
 
         return redirect(url_for('index'))
@@ -102,7 +102,7 @@ def update(servicio_id):
     """
     if 'username' in session:
         cursor.execute(
-            "SELECT id, servicio_nombre, servicio_descripcion FROM servicios_info WHERE id = %s", servicio_id)
+            "SELECT id, name, description FROM services WHERE id = %s", servicio_id)
         data = cursor.fetchone()
         return render_template('update.html', servicio=data)
     else:
@@ -121,7 +121,7 @@ def update_process(servicio_id):
         descripcion = request.form['servicio_descripcion']
 
         # Actualizar los datos en la base de datos
-        cursor.execute("UPDATE servicios_info SET servicio_nombre=%s, servicio_descripcion=%s WHERE id=%s",
+        cursor.execute("UPDATE services SET name=%s, description=%s WHERE id=%s",
                        (nombre, descripcion, servicio_id))
         db.commit()
 
@@ -139,7 +139,7 @@ def delete(servicio_id):
     """
     if 'username' in session:
         # Eliminar el servicio de la base de datos
-        cursor.execute("DELETE FROM servicios_info WHERE id=%s", servicio_id)
+        cursor.execute("DELETE FROM services WHERE id=%s", servicio_id)
         db.commit()
 
         return redirect(url_for('index'))
