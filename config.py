@@ -13,7 +13,7 @@ def get_database_uri():
     # Contraseña de la base de datos
     password = 'eggh-22cgFb-gBg4aH6DfFAC14edeFC6'
     # Nombre de la base de datos
-    db_name = 'railway'
+    db_name = '8-bits'
     # Host que hospeda la base de datos
     host = 'viaduct.proxy.rlwy.net'
     # Puerto donde está montada la base de datos

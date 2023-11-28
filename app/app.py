@@ -38,8 +38,11 @@ class Person(db.Model):
 
 @app.route('/')
 def index():
+    context = {
+        "persons" : Person.query.all()
+    }
     persons = Person.query.all()
-    return render_template('index.html', persons=persons)
+    return render_template('admin.html', **context)
 
 # Detalles de una persona
 
@@ -89,4 +92,4 @@ def delete_person(id):
 
 if __name__ == '__main__':
     # db.create_all()  # Crear tablas en la base de datos si no existen
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
