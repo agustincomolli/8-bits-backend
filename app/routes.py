@@ -3,6 +3,21 @@ from app import app, db
 from app.models import Service
 
 
+@app.errorhandler(404)
+def not_found_endpoint(error):
+    """
+    Renderiza la plantilla "error-404.html" con el error proporcionado.
+
+    Args:
+        error: El error que ocurrió.
+
+    Returns:
+        La plantilla renderizada con el error.
+
+    """
+    return render_template("error-404.html", error=error)
+
+
 @app.route('/')
 def index():
     """Ruta para la página principal.
