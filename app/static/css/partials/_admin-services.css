@@ -22,7 +22,7 @@
 .service-table th,
 .service-table td {
   padding: 8px;
-  font: var(--font-paragraph-3);
+  font: var(--font-paragraph-2);
 }
 
 .service-table-header {
