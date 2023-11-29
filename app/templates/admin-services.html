@@ -5,7 +5,7 @@
   <header class="services-header">
     <h2>Servicios</h2>
     <div class="btn-wrapper">
-      <a href="{{ url_for('index') }}">
+      <a href="{{ url_for('add_service') }}">
         <button class="btn-crud btn-add" title="Agregar">
           <img src="{{ url_for('static', filename='assets/icons/add.svg') }}" alt=""> 
           <span>Agregar servicio</span>
@@ -17,9 +17,9 @@
     <div class="table-wrapper">
       <table class="service-table">
         <thead class="service-row">
-          <th class="service-name">Nombre</th>
-          <th class="service-description">Descripción</th>
-          <th></th>
+          <th class="service-name service-table-header">Nombre</th>
+          <th class="service-description service-table-header">Descripción</th>
+          <th class="service-table-header"></th>
         </thead>
         <tbody>
           {% for service in services %}
