@@ -1,6 +1,5 @@
 from app import db
 
-
 class Service(db.Model):
     """
     Modelo de la tabla 'services' en la base de datos.
@@ -9,7 +8,7 @@ class Service(db.Model):
     Cada atributo de la clase es un campo en la tabla de la base de datos.
 
     Attributes:
-        id (Column): Identificador único de cada servicio. Es la llave primaria en la base de datos.
+        id (Column): Es la clave primaria.
         name (Column): Nombre del servicio. No puede ser nulo.
         description (Column): Descripción del servicio.
     """
