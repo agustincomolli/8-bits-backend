@@ -14,27 +14,26 @@ El código del proyecto sigue la siguiente estructura de archivos y directorios:
 ├── Procfile
 ├── README.md
 ├── requirements.txt
-├── app
-│ ├── config.py
-│ ├── init.py
-│ ├── models
-│ │ ├── plan.py
-│ │ ├── plan_detail.py
-│ │ ├── service.py
-│ │ └── init.py
-│ ├── static
-│ │ ├── assets
-│ │ │ └── images
-│ │ │ └── 404.gif
-│ │ └── css
-│ │ └── error-404.css
-│ ├── templates
-│ │ └── error-404.html
-│ └── views
-│ ├── auth_routes.py
-│ ├── service_routes.py
-│ └── init.py
-
+└── app
+    ├── config.py
+    ├── __init__.py
+    ├── models
+    │   ├── plan.py
+    │   ├── plan_detail.py
+    │   ├── service.py
+    │   └── __init__.py
+    ├── static
+    │   ├── assets
+    │   │   └── images
+    │   │       └── 404.gif
+    │   └── css
+    │       └── error-404.css
+    ├── templates
+    │   └── error-404.html
+    └── views
+        ├── auth_routes.py
+        ├── service_routes.py
+        └── __init__.py
 
 ## Instalación
 
