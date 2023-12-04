@@ -7,7 +7,8 @@ API de backend construida con Python y Flask, implementando Flask-SQLAlchemy com
 ## Estructura del Proyecto
 
 El código del proyecto sigue la siguiente estructura de archivos y directorios:
-```.
+```
+.
 ├── .gitignore
 ├── LICENSE
 ├── main.py
@@ -33,7 +34,8 @@ El código del proyecto sigue la siguiente estructura de archivos y directorios:
     └── views
         ├── auth_routes.py
         ├── service_routes.py
-        └── __init__.py```
+        └── __init__.py
+```
 
 ## Instalación
 
