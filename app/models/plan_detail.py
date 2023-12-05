@@ -1,5 +1,5 @@
 from app import db
-from app.models.plan import Plan  # Import sólo si se usan referencias a este modelo
+# from app.models.plan import Plan  # Import sólo si se usan referencias a este modelo
 
 class PlanDetail(db.Model):
     """

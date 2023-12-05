@@ -1,5 +1,5 @@
 from app import db
-from app.models.plan import PlanDetail
+from app.models.plan_detail import PlanDetail
 
 class Plan(db.Model):
     """

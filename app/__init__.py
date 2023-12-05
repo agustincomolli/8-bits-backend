@@ -13,7 +13,9 @@ db = SQLAlchemy(app)
 # Importar las vistas para registrar las rutas
 from app.views.service_routes import service_routes
 from app.views.auth_routes import auth_routes
+from app.views.plans_routes import plans_routes
 
 # Registrar el blueprint para las rutas del servicio
 app.register_blueprint(service_routes)
 app.register_blueprint(auth_routes)
+app.register_blueprint(plans_routes)
