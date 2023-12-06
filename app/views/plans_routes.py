@@ -31,3 +31,14 @@ def get_plan(plan_id):
     """Endpoint para obtener un plan específico por su ID."""
     plan = Plan.query.get_or_404(plan_id)
     return jsonify({'id': plan.id, 'name': plan.name, 'price': plan.price})
+
+
+@plans_routes.route('/plan/<int:plan_id>', methods=['PUT'])
+def update_service(plan_id):
+    """Endpoint para actualizar un plan existente."""
+    plan = Plan.query.get_or_404(plan_id)
+    data = request.json
+    plan.name = data['name']
+    plan.price = data.get('price')
+    db.session.commit()
+    return jsonify({'id': plan.id, 'name': plan.name, 'price': plan.price})
