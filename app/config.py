@@ -1,3 +1,5 @@
+import os
+
 def get_database_uri():
     """
     Genera y devuelve la URI de la base de datos.
@@ -11,7 +13,8 @@ def get_database_uri():
     # Usuario de la base de datos
     user = 'root'
     # Contraseña de la base de datos
-    password = 'eggh-22cgFb-gBg4aH6DfFAC14edeFC6'
+    # password = 'eggh-22cgFb-gBg4aH6DfFAC14edeFC6'
+    password = os.environ.get("MYSQLPASSWORD")
     # Nombre de la base de datos
     db_name = '8-bits'
     # Host que hospeda la base de datos
