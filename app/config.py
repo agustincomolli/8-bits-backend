@@ -1,4 +1,4 @@
-import os
+from os import environ
 
 def get_database_uri():
     """
@@ -12,9 +12,8 @@ def get_database_uri():
     """
     # Usuario de la base de datos
     user = 'root'
-    # Contraseña de la base de datos
-    # password = 'eggh-22cgFb-gBg4aH6DfFAC14edeFC6'
-    password = os.environ.get("MYSQLPASSWORD")
+    # Contraseña de la base de datos en variable de entorno del backend en Railway
+    password = environ.get("MYSQLPASSWORD")
     # Nombre de la base de datos
     db_name = '8-bits'
     # Host que hospeda la base de datos

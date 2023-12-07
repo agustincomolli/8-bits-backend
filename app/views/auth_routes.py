@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request, session
+from os import environ
 
 # Creación de un nuevo Blueprint para las rutas de autenticación
 auth_routes = Blueprint("auth_routes", __name__)
@@ -12,7 +13,9 @@ def validate_user(username, password) -> bool:
     :param password: Contraseña proporcionada.
     :return: Booleano indicando si la validación fue exitosa.
     """
-    if username == "admin" and password == "admin":
+
+     # La contraseña del login está en variable de entorno del backend en Railway
+    if username == "admin" and password == environ.get("LOGINPASSWORD"):
         return True
     else:
         return False
