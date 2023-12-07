@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from .config import get_database_uri
@@ -14,10 +14,22 @@ db = SQLAlchemy(app)
 from app.views.service_routes import service_routes
 from app.views.auth_routes import auth_routes
 from app.views.plans_routes import plans_routes
-from app.views.error_routes import error_routes
 
 # Registrar el blueprint para las rutas del servicio
 app.register_blueprint(service_routes)
 app.register_blueprint(auth_routes)
 app.register_blueprint(plans_routes)
-app.register_blueprint(error_routes)
+
+@app.errorhandler(404)
+def not_found_endpoint(error):
+    """
+    Renderiza la plantilla "error-404.html" con el error proporcionado.
+
+    Args:
+        error: El error que ocurrió.
+
+    Returns:
+        La plantilla renderizada con el error.
+
+    """
+    return render_template("error-404.html", error=error)
